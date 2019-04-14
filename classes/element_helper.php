@@ -30,6 +30,8 @@ require_once($CFG->libdir . '/grade/constants.php');
 require_once($CFG->dirroot . '/grade/lib.php');
 require_once($CFG->dirroot . '/grade/querylib.php');
 
+use mod_feedback_structure;
+
 /**
  * Class helper.
  *
@@ -627,4 +629,95 @@ class element_helper {
             $grade->get_dategraded()
         );
     }
+
+    /**
+     * Helper function to return all the feedback items for a given course.
+     *
+     * @param \stdClass $course The course we want to return the grade items for
+     * @return array the array of feedback items in the course
+    */
+    public static function get_feedback_items($course) {
+        global $DB, $PAGE;
+
+        // Array to store the grade items.
+        $feedbackOptions = array();
+
+        // Collect course modules data.
+        $modinfo = get_fast_modinfo($course);
+        $mods = $modinfo->get_cms();
+        $sections = $modinfo->get_section_info_all();
+
+        // Loop through each course section.
+        for ($i = 0; $i <= count($sections) - 1; $i++) {
+            // Confirm the index exists, should always be true.
+            if (isset($sections[$i])) {
+                // Get the individual section.
+                $section = $sections[$i];
+                
+                // Get the mods for this section.
+                $sectionmods = explode(",", $section->sequence);
+                // Loop through the section mods.
+                foreach ($sectionmods as $sectionmod) {
+                    // Should never happen unless DB is borked.
+                    if (empty($mods[$sectionmod])) {
+                        continue;
+                    }
+                    $mod = $mods[$sectionmod];
+                    $instance = $DB->get_record($mod->modname, array('id' => $mod->instance));
+                    if ( $mod->modname == 'feedback' ) {
+                        $feedbackitems = $DB->get_records('feedback_item', array('feedback' => $mod->instance), 'position');
+                        if (is_array($feedbackitems)) {
+                            foreach ( $feedbackitems as $curitem ) {
+                                $feedbackOptions['fi:' . $curitem->id] = $mod->name . ' : ' . $curitem->name;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return $feedbackOptions;
+    }
+
+    /**
+     * Helper function to return all the info on a given feedback id.
+     *
+     * @param int $feedbackItem the id of the feedback item we want info on
+     * @return \Stdclass object of the feedback item
+     */
+    public static function get_feedback_item_info($feedbackItem) {
+        global $DB, $PAGE;
+
+        $itemInfo = $DB->get_record('feedback_item', array('id' => $feedbackItem));
+        if ( !$itemInfo ) {
+            $itemInfo = new \Stdclass;
+        }
+        return $itemInfo;
+    }
+
+    /**
+     * Helper function to return the feedback item
+     *
+     * @param int $feedbackItem  id of the feedback item we want info on
+     * @param \Stdclass $user User object
+     * @return \Stdclass object of the feedback item
+     */
+    public static function get_feedback_item_value($feedbackItem, $user) {
+        global $DB, $PAGE;
+
+        $fbItem = \mod_customcert\element_helper::get_feedback_item_info($feedbackItem);
+        $params = [
+            'userid' => $user->id,
+            'feedback' => $fbItem->feedback
+        ];
+
+        $completed_item = $DB->get_record('feedback_completed', $params, '*', MUST_EXIST);
+        $valueParams = [
+            'item' => $feedbackItem,
+            'id' => $completed_item->id
+        ];        
+        $feedbackValue = $DB->get_record('feedback_value', $valueParams, '*', MUST_EXIST);
+        return $feedbackValue->value;
+    }
+
 }
