@@ -22,7 +22,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['coursegrade'] = 'Course grade';
 $string['feedbackitem'] = 'Feedback item';
 $string['feedbackitem_help'] = 'The feedback item you wish to display the value of.';
 $string['pluginname'] = 'Feedback';
