@@ -105,10 +105,10 @@ class element extends \mod_customcert\element {
         $feedbackinfo = json_decode($this->get_data());
         $itemId = explode(':', $feedbackinfo->feedbackitem);
         $itemId = $itemId[1];
-        $itemInfo = \mod_customcert\element_helper::get_feedback_item_info($itemId);
 
         // If we are previewing this certificate then just get a random value
         if ($preview) {
+            $itemInfo = \mod_customcert\element_helper::get_feedback_item_info($itemId);
             $feedbackValue = $this->generate_feedback_value($itemInfo);
         } else {
             // Get the entered feedback value and display it here

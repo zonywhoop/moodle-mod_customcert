@@ -668,7 +668,8 @@ class element_helper {
                         $feedbackitems = $DB->get_records('feedback_item', array('feedback' => $mod->instance), 'position');
                         if (is_array($feedbackitems)) {
                             foreach ( $feedbackitems as $curitem ) {
-                                $feedbackOptions['fi:' . $curitem->id] = $mod->name . ' : ' . $curitem->name;
+                                if ( $curitem->type != 'label' )
+                                    $feedbackOptions['fi:' . $curitem->id] = $mod->name . ' : ' . $curitem->name;
                             }
                         }
                     }
@@ -711,12 +712,12 @@ class element_helper {
             'feedback' => $fbItem->feedback
         ];
 
-        $completed_item = $DB->get_record('feedback_completed', $params, '*', MUST_EXIST);
-        $valueParams = [
-            'item' => $feedbackItem,
-            'id' => $completed_item->id
-        ];        
-        $feedbackValue = $DB->get_record('feedback_value', $valueParams, '*', MUST_EXIST);
+        $feedbackValue = $DB->get_record_sql(
+            'SELECT `fv`.`value` as `value` FROM {feedback_value} as `fv` Inner join {feedback_completed} as `fc` on `fv`.`completed` = `fc`.`id` '
+            . 'inner join {feedback_item} as `fi` on `fv`.`item` = `fi`.`id` '
+            . 'inner join {user} as `user` on `fc`.`userid` = `user`.`id` '
+            . 'WHERE `fi`.`id` = ? and `user`.`id` = ?',
+            [$feedbackItem, $user->id]);
         return $feedbackValue->value;
     }
 
