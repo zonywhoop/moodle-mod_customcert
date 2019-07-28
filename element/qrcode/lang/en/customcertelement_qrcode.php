@@ -15,19 +15,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Code fragment to define the version of the customcert module
+ * Strings for component 'customcertelement_qrcode', language 'en'.
  *
- * @package    mod_customcert
- * @copyright  2013 Mark Nelson <markn@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
+ * @package    customcertelement_qrcode
+ * @copyright  2019 Mark Nelson <markn@moodle.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die('Direct access to this script is forbidden.');
-
-$plugin->version   = 2018120303; // The current module version (Date: YYYYMMDDXX).
-$plugin->requires  = 2018120300; // Requires this Moodle version (3.6).
-$plugin->cron      = 0; // Period for cron to check this module (secs).
-$plugin->component = 'mod_customcert';
-
-$plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = "3.6.3"; // User-friendly version number.
+$string['height'] = 'Height';
+$string['height_help'] = 'Height help';
+$string['pluginname'] = 'QR code';
+$string['privacy:metadata'] = 'The QR code plugin does not store any personal data.';
+$string['width'] = 'Width';
+$string['width_help'] = 'width help';

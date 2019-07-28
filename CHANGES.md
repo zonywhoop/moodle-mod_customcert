@@ -4,6 +4,42 @@ All notable changes to this project will be documented in this file.
 
 Note - All hash comments refer to the issue number. Eg. #169 refers to https://github.com/markn86/moodle-mod_customcert/issues/169.
 
+## [3.6.3] - 2019-06-17
+
+### Added
+
+- Added ability to specify the current date for date related elements (#289).
+
+### Changed
+
+- String improvements for the 'Date range' element.
+
+### Fixed
+
+- Use negative numbers for constants in the 'Date range' element. The reason being that we may have a module
+  that has an id matching one of these positive values. Sites which are using the 'Date range' element (sites
+  which are **not** using this element do **not** have to do anything) will need to re-edit each element, select
+  the date item again and save. An upgrade step was not created because it is impossible to tell if the site does
+  actually want the constant or if they actually want the date for the module.
+
+## [3.6.2] - 2019-05-28
+
+### Changed
+
+- Always send emails from the 'noreplyuser' (#165).
+
+### Added
+
+- Added QR code element (#146).
+- Added Date range element (#185).
+- Added the number of certificates issued above the report (#266).
+- Added new capability to control who can be issued a certificate (#270).
+
+### Fixed
+
+- Failures when running unit tests for multiple activities (#282).
+- Check that a certificate is valid before downloading on 'My certificates' page (#269).
+
 ## [3.6.1] - 2018-12-31
 
 ### Changed
