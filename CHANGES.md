@@ -2,7 +2,56 @@
 
 All notable changes to this project will be documented in this file. 
 
-Note - All hash comments refer to the issue number. Eg. #169 refers to https://github.com/markn86/moodle-mod_customcert/issues/169.
+Note - All hash comments refer to the issue number. Eg. #169 refers to https://github.com/mdjnelson/moodle-mod_customcert/issues/169.
+
+## [3.6.7] - 2020-??-??
+
+### Added
+
+- Added ability to select outcomes in the Grade element (#329).
+- The Grade Item Name element now works with all grade items, whereas before it was just activities (#346).
+
+## Changed
+
+- Removed unnecessary and confusing 'exampledata' string.
+
+### Fixed
+
+- Certificates now get marked as viewed via the mobile app (#342).
+
+## [3.6.6] - 2020-03-12
+
+### Added
+
+- Added extra Behat steps for new elements (#309).
+
+### Changed
+
+- When copying a site template the site images are also copied to the course context and then those copied images are used.
+  Before, the elements would simply point to the site images. However, this meant when performing a backup/restore the
+  images were not stored in the backup file (#298).
+
+### Fixed
+
+- Fixed the displaying of names of a custom user field (#326).
+- Do not allow '0' as a value for width or height in QR code (#321).
+
+## [3.6.5] - 2020-03-09
+
+### Fixed
+
+- Fixed foreign key violation (#331).
+
+## [3.6.4] - 2020-02-01
+
+### Added
+
+- Re-added 'code' column to user report (#264).
+- Add 'userfullname' variable for email subject (#316).
+
+### Fixed
+
+- Do not fail if multiple certificate issues (#304) and (#295).
 
 ## [3.6.3] - 2019-06-17
 
