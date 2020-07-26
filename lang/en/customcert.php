@@ -22,6 +22,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+$string['activity'] = 'Activity';
 $string['addcertpage'] = 'Add page';
 $string['addelement'] = 'Add element';
 $string['awardedto'] = 'Awarded to';
@@ -41,6 +42,7 @@ $string['customcert:manageemailothers'] = 'Manage email others setting';
 $string['customcert:manageverifyany'] = 'Manage verification setting';
 $string['customcert:managerequiredtime'] = 'Manage time required setting';
 $string['customcert:manageprotection'] = 'Manage protection setting';
+$string['customcert:receiveissue'] = 'Receive a certificate';
 $string['customcert:view'] = 'View a custom certificate';
 $string['customcert:viewreport'] = 'View course report';
 $string['customcert:viewallcertificates'] = 'View all certificates';
@@ -87,7 +89,6 @@ $string['emailteachers'] = 'Email teachers';
 $string['emailteachers_help'] = 'If set this will email the teachers a copy of the certificate when it becomes available.';
 $string['emailothers'] = 'Email others';
 $string['emailothers_help'] = 'If set this will email the email addresses listed here (separated by a comma) with a copy of the certificate when it becomes available.';
-$string['exampledata'] = 'Example {$a}:';
 $string['exampledatawarning'] = 'Some of these values may just be an example to ensure positioning of the elements is possible.';
 $string['font'] = 'Font';
 $string['font_help'] = 'The font used when generating this element.';
@@ -96,6 +97,7 @@ $string['fontcolour_help'] = 'The colour of the font.';
 $string['fontsize'] = 'Size';
 $string['fontsize_help'] = 'The size of the font in points.';
 $string['getcustomcert'] = 'View certificate';
+$string['gradeoutcome'] = 'Outcome';
 $string['height'] = 'Height';
 $string['height_help'] = 'This is the height of the certificate PDF in mm. For reference an A4 piece of paper is 297mm high and a letter is 279mm high.';
 $string['invalidcode'] = 'Invalid code supplied.';

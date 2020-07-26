@@ -15,26 +15,15 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Fake datarange element for testing.
+ * Strings for component 'customcertelement_coursefield', language 'en'.
  *
- * @package    customcertelement_daterange
- * @copyright  2018 Dmitrii Metelkin <dmitriim@catalyst-au.net>
+ * @package    customcertelement_coursefield
+ * @copyright  2019 Catalyst IT
+ * @author     Dan Marsden
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-
-class fake_datarange_element extends \customcertelement_daterange\element {
-
-    /**
-     * Override protected method for testing.
-     *
-     * @param int $date
-     *
-     * @return string
-     */
-    public function get_daterange_string($date) {
-        $result = parent::get_daterange_string($date);
-        return $result;
-    }
-}
+$string['pluginname'] = 'Course field';
+$string['privacy:metadata'] = 'The course field plugin does not store any personal data.';
+$string['coursefield'] = 'Course field';
+$string['coursefield_help'] = 'This is the course field that will be displayed on the PDF.';

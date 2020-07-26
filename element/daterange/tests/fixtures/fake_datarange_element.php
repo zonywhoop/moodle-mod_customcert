@@ -15,15 +15,33 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file contains the version information for the digital signature plugin.
+ * Fake datarange element for testing.
  *
- * @package    customcertelement_digitalsignature
- * @copyright  2017 Mark Nelson <markn@moodle.com>
+ * @package    customcertelement_daterange
+ * @copyright  2018 Dmitrii Metelkin <dmitriim@catalyst-au.net>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die('Direct access to this script is forbidden.');
+defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2019052000; // The current module version (Date: YYYYMMDDXX).
-$plugin->requires  = 2019052000; // Requires this Moodle version (3.7).
-$plugin->component = 'customcertelement_digitalsignature';
+/**
+ * Fake datarange element for testing.
+ *
+ * @package    customcertelement_daterange
+ * @copyright  2018 Dmitrii Metelkin <dmitriim@catalyst-au.net>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class fake_datarange_element extends \customcertelement_daterange\element {
+
+    /**
+     * Override protected method for testing.
+     *
+     * @param int $date
+     *
+     * @return string
+     */
+    public function get_daterange_string($date) {
+        $result = parent::get_daterange_string($date);
+        return $result;
+    }
+}

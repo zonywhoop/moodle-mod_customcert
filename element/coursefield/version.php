@@ -15,15 +15,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file contains the version information for the digital signature plugin.
+ * This file contains the version information for the coursefield plugin.
  *
- * @package    customcertelement_digitalsignature
- * @copyright  2017 Mark Nelson <markn@moodle.com>
+ * @package    customcertelement_coursefield
+ * @copyright  2019 Catalyst IT
+ * @author     Dan Marsden
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die('Direct access to this script is forbidden.');
 
-$plugin->version   = 2019052000; // The current module version (Date: YYYYMMDDXX).
-$plugin->requires  = 2019052000; // Requires this Moodle version (3.7).
-$plugin->component = 'customcertelement_digitalsignature';
+$plugin->version   = 2019041100; // The current module version (Date: YYYYMMDDXX).
+$plugin->requires  = 2019041000; // Requires this Moodle version (3.7).
+$plugin->component = 'customcertelement_coursefield';
