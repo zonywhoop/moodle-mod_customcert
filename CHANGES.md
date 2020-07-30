@@ -2,7 +2,76 @@
 
 All notable changes to this project will be documented in this file. 
 
-Note - All hash comments refer to the issue number. Eg. #169 refers to https://github.com/markn86/moodle-mod_customcert/issues/169.
+Note - All hash comments refer to the issue number. Eg. #169 refers to https://github.com/mdjnelson/moodle-mod_customcert/issues/169.
+
+## [3.8.5] - 2020-??-??
+
+### Added
+
+- Added ability to select outcomes in the Grade element (#329).
+- The Grade Item Name element now works with all grade items, whereas before it was just activities (#346).
+
+## Changed
+
+- Removed unnecessary and confusing 'exampledata' string.
+
+### Fixed
+
+- Certificates now get marked as viewed via the mobile app (#342).
+
+## [3.8.4] - 2020-03-12
+
+### Added
+
+- Added extra Behat steps for new elements (#309).
+
+### Changed
+
+- When copying a site template the site images are also copied to the course context and then those copied images are used.
+  Before, the elements would simply point to the site images. However, this meant when performing a backup/restore the
+  images were not stored in the backup file (#298).
+
+### Fixed
+
+- Fixed the displaying of names of a custom user field (#326).
+- Do not allow '0' as a value for width or height in QR code (#321).
+
+## [3.8.3] - 2020-03-09
+
+### Fixed
+
+- Fixed foreign key violation (#331).
+
+## [3.8.2] - 2019-12-16
+
+### Added
+
+- Added subplugins.json file (#312).
+- Re-added 'code' column to user report (#264).
+- Add 'userfullname' variable for email subject (#316).
+
+### Fixed
+
+- Do not fail if multiple certificate issues (#304) and (#295).
+
+## [3.7.1] - 2019-06-17
+
+### Added
+
+- Added new custom course field element (#274).
+- Added ability to specify the current date for date related elements (#289).
+
+### Changed
+
+- String improvements for the 'Date range' element.
+
+### Fixed
+
+- Use negative numbers for constants in the 'Date range' element. The reason being that we may have a module
+  that has an id matching one of these positive values. Sites which are using the 'Date range' element (sites
+  which are **not** using this element do **not** have to do anything) will need to re-edit each element, select
+  the date item again and save. An upgrade step was not created because it is impossible to tell if the site does
+  actually want the constant or if they actually want the date for the module.
 
 ## [3.6.3] - 2019-06-17
 

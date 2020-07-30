@@ -15,10 +15,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file contains the version information for the image plugin.
+ * This file contains the version information for the coursefield plugin.
  *
- * @package    customcertelement_image
- * @copyright  2013 Mark Nelson <markn@moodle.com>
+ * @package    customcertelement_coursefield
+ * @copyright  2019 Catalyst IT
+ * @author     Dan Marsden
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -26,4 +27,4 @@ defined('MOODLE_INTERNAL') || die('Direct access to this script is forbidden.');
 
 $plugin->version   = 2019111800; // The current module version (Date: YYYYMMDDXX).
 $plugin->requires  = 2019111800; // Requires this Moodle version (3.8).
-$plugin->component = 'customcertelement_image';
+$plugin->component = 'customcertelement_coursefield';

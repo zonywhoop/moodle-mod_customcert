@@ -147,7 +147,7 @@ class element extends \mod_customcert\element {
             $customcert = $DB->get_record('customcert', array('templateid' => $page->templateid), '*', MUST_EXIST);
             // Now we can get the issue for this user.
             $issue = $DB->get_record('customcert_issues', array('userid' => $user->id, 'customcertid' => $customcert->id),
-                '*', MUST_EXIST);
+                '*', IGNORE_MULTIPLE);
 
             if ($dateitem == CUSTOMCERT_DATE_ISSUE) {
                 $date = $issue->timecreated;
@@ -198,12 +198,7 @@ class element extends \mod_customcert\element {
 
         // Ensure that a date has been set.
         if (!empty($date)) {
-            $date = $this->get_date_format_string($date, $dateformat);
-            // If we are previewing, we want to let the user know it's an example date so they don't get confused.
-            if ($preview) {
-                $date = get_string('exampledata', 'customcert', 'date') . ' ' . $date;
-            }
-            \mod_customcert\element_helper::render_content($pdf, $this, $date);
+            \mod_customcert\element_helper::render_content($pdf, $this, $this->get_date_format_string($date, $dateformat));
         }
     }
 

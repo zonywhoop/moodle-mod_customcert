@@ -15,13 +15,15 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Definition of sub-plugins.
+ * Strings for component 'customcertelement_coursefield', language 'en'.
  *
- * @package    mod_customcert
- * @copyright  2013 Mark Nelson <markn@moodle.com>
+ * @package    customcertelement_coursefield
+ * @copyright  2019 Catalyst IT
+ * @author     Dan Marsden
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-
-$subplugins = array('customcertelement' => 'mod/customcert/element');
+$string['pluginname'] = 'Course field';
+$string['privacy:metadata'] = 'The course field plugin does not store any personal data.';
+$string['coursefield'] = 'Course field';
+$string['coursefield_help'] = 'This is the course field that will be displayed on the PDF.';
